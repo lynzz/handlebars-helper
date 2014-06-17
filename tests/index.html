@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>handlebars helper</title>
+    <link rel="stylesheet" href="../vendor/qunit/qunit/qunit.css">
+</head>
+<body>
+<h1 id="qunit-header">QUnit Test Suite</h1>
+<h2 id="qunit-banner"></h2>
+<div id="qunit-testrunner-toolbar"></div>
+<h2 id="qunit-userAgent"></h2>
+<ol id="qunit-tests"></ol>
+<div id="qunit-fixture">test markup</div>
+<script src="../vendor/jquery/dist/jquery.js"></script>
+<script src="../build/handlebars-1.3.0.js"></script>
+<script src="../vendor/qunit/qunit/qunit.js"></script>
+<script id="template" type="text/template">
+    <div class="component-news">
+        <div class="hd">
+            <h3>{{config.title}}</h3>
+        </div>
+        <div class="bd">
+            <ol class="component-news-list">
+                {{#each data}}
+                <li><a class="component-news-item" href="{{href}}">{{title}}</a><span class="component-news-date"> {{dateFormat publishTime ../config.dateFormat}}</span></li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+</script>
+<script id="template1" type="text/template">
+    <div class="component-news">
+        <div class="hd">
+            <h3>{{config.title}}</h3>
+        </div>
+        <div class="bd">
+            <ol class="component-news-list">
+                {{#each data}}
+                <li><a class="component-news-item" href="{{href}}" title="{{title}}">{{titleLimit title ../config.titleLimit}}</a><span class="component-news-date"> {{dateFormat publishTime ../config.dateFormat}}</span></li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+</script>
+<script>
+    var context = {
+        "config": {
+            "title": "新闻列表aaaaaaaaaaaaaaaaaaaaaaaa",
+            "dateFormat": "dd",
+            "titleLimit": "10",
+            "titleLink": "www.17173.com"
+        },
+        "data": [
+            {
+                "title": "电玩未来9大趋势：数字与实体的跨界或已到来",
+                "href": "http://17173.com",
+                "publishTime": 1402988830369
+            }, {
+                "title": "电玩未来9大趋势：数字与实体的跨界或已到来",
+                "href": "http://17173.com",
+                "publishTime": 1402988830369
+            }
+        ]
+    };
+
+    test('test helper dateFormat', function() {
+        var content = $('<div id="content" style="display: none"/>').appendTo('#qunit-fixture');
+        var source   = $("#template").html();
+        var template = Handlebars.compile(source);
+
+        var html    = template(context);
+        console.log(html)
+        content.html(html);
+        ok( content.length > 0, '' );
+
+    });
+
+    test('test helper titleLimit', function() {
+        var content = $('<div id="content" style="display: none"/>').appendTo('#qunit-fixture');
+        var source   = $("#template1").html();
+        var template = Handlebars.compile(source);
+
+        var html    = template(context);
+        console.log(html)
+        content.html(html);
+        ok( content.length > 0, '' );
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "handlebars-helper",
+  "version": "1.3.0",
+  "homepage": "https://github.com/lynzz/handlebars-helper",
+  "authors": [
+    "lynzz <lynzz168@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "~1.3.0",
+    "qunit": "~1.14.0",
+    "jquery": "~2.1.1"
+  }
+}
