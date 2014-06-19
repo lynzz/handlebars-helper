@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           noncmd: true
         },
         files: {
-          'build/handlebars-<%= pkg.version %>.js':['vendor/handlebars/handlebars.js', 'src/dateformat.js', 'src/handlebars-helper.js']
+          'build/handlebars-<%= pkg.version %>.js':['vendor/handlebars/handlebars.js', 'src/dateformat.js', 'src/handlebars-helpers.js']
         }
       },
       cmd: {

@@ -1,4 +1,4 @@
-define("gallery/handlebars-helper/1.3.0/handlebars-helper-debug", [ "gallery/handlebars/1.0.2/handlebars-debug", "./dateformat-debug" ], function(require, exports, module) {
+define("gallery/handlebars-helpers/1.3.0/handlebars-helpers-debug", [ "gallery/handlebars/1.0.2/handlebars-debug", "./dateformat-debug" ], function(require, exports, module) {
     (function(Handlebars, DateFormat) {
         var hasDefine = typeof define === "function";
         var hasExports = typeof module !== "undefined" && module.exports;
@@ -32,7 +32,7 @@ define("gallery/handlebars-helper/1.3.0/handlebars-helper-debug", [ "gallery/han
     })(typeof Handlebars !== "undefined" ? Handlebars : undefined, typeof DateFormat !== "undefined" ? DateFormat : undefined);
 });
 
-define("gallery/handlebars-helper/1.3.0/dateformat-debug", [], function(require, exports, module) {
+define("gallery/handlebars-helpers/1.3.0/dateformat-debug", [], function(require, exports, module) {
     /*!
 	 * dateformat.js v0.0.6
 	 * https://github.com/minodisk/dateformat

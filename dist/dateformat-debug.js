@@ -1,4 +1,4 @@
-define("gallery/handlebars-helper/1.3.0/dateformat-debug", [], function(require, exports, module) {
+define("gallery/handlebars-helpers/1.3.0/dateformat-debug", [], function(require, exports, module) {
     /*!
 	 * dateformat.js v0.0.6
 	 * https://github.com/minodisk/dateformat
