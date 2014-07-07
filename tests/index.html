@@ -37,7 +37,7 @@
         <div class="bd">
             <ol class="component-news-list">
                 {{#each data}}
-                <li><a class="component-news-item" href="{{href}}" title="{{title}}">{{titleLimit title ../config.titleLimit}}</a><span class="component-news-date"> {{dateFormat publishTime ../config.dateFormat}}</span></li>
+                <li><a class="component-news-item" href="{{href}}" title="{{title}}">{{{ellipsis title ../config.titleLimit}}}</a><span class="component-news-date"> {{dateFormat publishTime ../config.dateFormat}}</span></li>
                 {{/each}}
             </ol>
         </div>
@@ -64,19 +64,38 @@
         ]
     };
 
+    var context1 = {
+      "config": {
+        "title": "",
+        "dateFormat": "dd",
+        "titleLimit": "10",
+        "titleLink": "www.17173.com"
+      },
+      "data": [
+        {
+          "title": "电玩未来9大趋势：数字与实体的跨界或已到来",
+          "href": "http://17173.com",
+          "publishTime": 1402988830369
+        }, {
+          "title": "电玩未来9大趋势：数字与实体的跨界或已到来",
+          "href": "http://17173.com",
+          "publishTime": 1402988830369
+        }
+      ]
+    };
+
     test('test helper dateFormat', function() {
         var content = $('<div id="content" style="display: none"/>').appendTo('#qunit-fixture');
         var source   = $("#template").html();
         var template = Handlebars.compile(source);
 
         var html    = template(context);
-        console.log(html)
         content.html(html);
         ok( content.length > 0, '' );
 
     });
 
-    test('test helper titleLimit', function() {
+    test('test helper ellipsis', function() {
         var content = $('<div id="content" style="display: none"/>').appendTo('#qunit-fixture');
         var source   = $("#template1").html();
         var template = Handlebars.compile(source);

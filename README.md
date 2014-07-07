@@ -12,8 +12,8 @@ cms3.0 handlebars helpers
 
 日期显示方式
 
-### titleLimit(title, limit)
+### ellipsis(val, size)
 
-标题限制
+标题限制,超出的加省略号
 
 

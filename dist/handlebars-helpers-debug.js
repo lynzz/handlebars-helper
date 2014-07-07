@@ -13,12 +13,13 @@ define("gallery/handlebars-helpers/1.3.0/handlebars-helpers-debug", [ "gallery/h
                 return df.format(new Date(date));
             },
             // 标题长度限制
-            titleLimit: function(title, limit) {
-                var len = title.length;
-                if (len <= limit) {
-                    return title;
+            ellipsis: function(val, size) {
+                if (!val) {
+                    return "";
                 } else {
-                    return title.slice(0, limit - 1) + "...";
+                    var len = val.length;
+                    val = len <= size ? val : val.slice(0, size) + "&hellip;";
+                    return val;
                 }
             }
         };
