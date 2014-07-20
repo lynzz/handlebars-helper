@@ -55,33 +55,13 @@
             {
                 "title": "电玩未来9大趋势：数字与实体的跨界或已到来",
                 "href": "http://17173.com",
-                "publishTime": 1402988830369
+                "publishTime": '1402988830369'
             }, {
                 "title": "电玩未来9大趋势：数字与实体的跨界或已到来",
                 "href": "http://17173.com",
                 "publishTime": 1402988830369
             }
         ]
-    };
-
-    var context1 = {
-      "config": {
-        "title": "",
-        "dateFormat": "dd",
-        "titleLimit": "10",
-        "titleLink": "www.17173.com"
-      },
-      "data": [
-        {
-          "title": "电玩未来9大趋势：数字与实体的跨界或已到来",
-          "href": "http://17173.com",
-          "publishTime": 1402988830369
-        }, {
-          "title": "电玩未来9大趋势：数字与实体的跨界或已到来",
-          "href": "http://17173.com",
-          "publishTime": 1402988830369
-        }
-      ]
     };
 
     test('test helper dateFormat', function() {
@@ -91,18 +71,36 @@
 
         var html    = template(context);
         content.html(html);
-        ok( content.length > 0, '' );
+        ok( content.length > 0, '内容渲染成功' );
+        ok( content.find('.component-news-date').first().text().trim() === '17', '时间戳为字符串' );
+
+        context.config.dateFormat = 'MM-dd';
+        template = Handlebars.compile(source);
+        html = template(context);
+        content.html(html);
+        ok( content.find('.component-news-date').first().text().trim() === '06-17', '时间格式为月-日' );
+
+        context.config.dateFormat = 'yyyy-MM-dd';
+        template = Handlebars.compile(source);
+        html = template(context);
+        content.html(html);
+        ok( content.find('.component-news-date').first().text().trim() === '2014-06-17', '时间格式为年-月-日' );
+
+        context.config.dateFormat = 'MM-dd-yyyy';
+        template = Handlebars.compile(source);
+        html = template(context);
+        content.html(html);
+        ok( content.find('.component-news-date').first().text().trim() === '06-17-2014', '时间格式为月-日-年' );
 
     });
 
+    // TODO 完善测试用例
     test('test helper ellipsis', function() {
         var content = $('<div id="content" style="display: none"/>').appendTo('#qunit-fixture');
         var source   = $("#template1").html();
         var template = Handlebars.compile(source);
 
         var html    = template(context);
-        console.log(html)
-        content.html(html);
         ok( content.length > 0, '' );
 
     });

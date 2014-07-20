@@ -9,7 +9,7 @@
     // 时间格式
     dateFormat: function(date, format) {
       var df = new DateFormat(format);
-      return df.format(new Date(date));
+      return df.format(new Date(parseInt(date, 10)));
     },
     // 标题长度限制
     ellipsis: function(val, size) {
