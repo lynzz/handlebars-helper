@@ -9,16 +9,19 @@ define("gallery/handlebars-helpers/1.3.0/handlebars-helpers-debug", [ "gallery/h
         var helpers = {
             // 时间格式
             dateFormat: function(date, format) {
-                var df = new DateFormat(format);
                 if (!date) {
                     return "";
                 }
+                format = format || "MM-dd";
+                var df = new DateFormat(format);
                 return df.format(new Date(parseInt(date, 10)));
             },
             // 标题长度限制
             ellipsis: function(val, size) {
                 if (!val) {
                     return "";
+                } else if (!size) {
+                    return val;
                 } else {
                     var len = val.length;
                     val = len <= size ? val : val.slice(0, size - 1) + "&hellip;";
