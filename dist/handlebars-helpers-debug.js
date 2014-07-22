@@ -10,6 +10,9 @@ define("gallery/handlebars-helpers/1.3.0/handlebars-helpers-debug", [ "gallery/h
             // 时间格式
             dateFormat: function(date, format) {
                 var df = new DateFormat(format);
+                if (!date) {
+                    return "";
+                }
                 return df.format(new Date(parseInt(date, 10)));
             },
             // 标题长度限制
