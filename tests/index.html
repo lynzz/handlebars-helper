@@ -92,6 +92,7 @@
         content.html(html);
         ok( content.find('.component-news-date').first().text().trim() === '06-17-2014', '时间格式为月-日-年' );
 
+
         context.data[0].publishTime = null;
         template = Handlebars.compile(source);
         html = template(context);

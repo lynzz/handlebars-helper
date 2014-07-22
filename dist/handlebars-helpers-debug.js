@@ -21,7 +21,7 @@ define("gallery/handlebars-helpers/1.3.0/handlebars-helpers-debug", [ "gallery/h
                     return "";
                 } else {
                     var len = val.length;
-                    val = len <= size ? val : val.slice(0, size) + "&hellip;";
+                    val = len <= size ? val : val.slice(0, size - 1) + "&hellip;";
                     return val;
                 }
             }

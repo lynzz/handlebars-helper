@@ -20,7 +20,7 @@
         return '';
       } else {
         var len = val.length;
-        val = len <= size ? val : val.slice(0, size) + '&hellip;';
+        val = len <= size ? val : val.slice(0, size - 1) + '&hellip;';
 
         return val;
       }
